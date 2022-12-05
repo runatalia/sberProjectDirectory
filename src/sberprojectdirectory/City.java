@@ -2,7 +2,7 @@ package sberprojectdirectory;
 
 import java.util.Objects;
 
-public class City implements Comparable {
+public class City {
     private int id;
     private String name;
     private String region;
@@ -102,5 +102,5 @@ public class City implements Comparable {
                 '}';
     }
 
- 
+
 }
