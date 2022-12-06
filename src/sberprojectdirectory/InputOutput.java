@@ -15,20 +15,21 @@ public class InputOutput {
         return cities;
     }
 
-    public static ArrayList<City> InputOutput() {      //reading information from a file
+    public static ArrayList<City> inputOutput() {      //reading information from a file
         ArrayList<City> cities = new ArrayList<>();
         Scanner input = new Scanner(System.in);
         System.out.println("Введите адрес файла: ");
         File file = new File(input.nextLine());
         try {
             input = new Scanner(file);
+            while (input.hasNextLine()) {
+                cities.add(transferToCity(input.nextLine()));   //adding a new city to the list
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+        } finally {
+            input.close();
         }
-        while (input.hasNextLine()) {
-            cities.add(transferToCity(input.nextLine()));   //adding a new city to the list
-        }
-        input.close();
         return cities;
     }
 
@@ -53,5 +54,6 @@ public class InputOutput {
         }
         return city;
     }
+
 
 }

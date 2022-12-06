@@ -2,7 +2,7 @@ package sberprojectdirectory;
 
 import java.util.Objects;
 
-public class City {
+public class City implements Comparable {
     private int id;
     private String name;
     private String region;
@@ -100,6 +100,11 @@ public class City {
                 ", population=" + population +
                 ", foundation='" + foundation + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return name.compareToIgnoreCase(((City) o).getName());
     }
 
 
